@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>exp5</title>
+  <style type="text/css">
+        h1{
+        align-items: center;
+        padding-bottom: 20px;
+        
+        }
+        .btn{width:150px; height:32px; outline:none;  color:#734cdf; font-weight:bold; border:0px solid #ffffff; 
+         border-radius: 2px; font-weight: 600; color: #effdf3; letter-spacing: 1px; 
+        font-size:14px; background-color:#734cdf; margin-right:10px}
+        .beta table, .beta th, .beta td {
+  border: 1px solid;
+  padding: 20px;
+  background-color: aliceblue;
+}
+body{
+    background-color: rgb(199, 235, 233);
+}
+
+     </style>
+</head>
+
+<body class="background">
+    <h1> User info </h1>
+            <table cellspacing="2" align="center" cellpadding="8" border="0">
+
+                <tr>
+                <td align="right">Enter ID :</td>
+                <td><input type="text" placeholder="Enter ID" id="name" /></td> 
+                </tr>
+                <tr>
+                <td></td>
+                <td>
+                    <input type="reset" value="Clear" onclick="clearFunc()"  id="res" class="btn" />
+                    <input type="submit" value="Show data" class="btn" onclick="loadXMLDoc(document.getElementById('name').value)" /></td><!-- id is name in text -->
+                    
+                </tr>
+            </table>
+    <br><br>
+    <h2 id="flag" align="center"></h2>
+    <table id="demo" align="center" class="beta"></table>
+
+    <script>
+        function clearFunc() {
+            document.getElementById("name").value = "";
+
+        }
+
+        function loadXMLDoc(value) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) { //4 means req sent, and responce recieved and downloded form server, 200 means "OK" unlike 404
+                    myFunction(this, value);
+                }
+            };
+            xmlhttp.open("GET", "data.xml", true);
+            xmlhttp.send();
+            return true
+        }
+
+        function myFunction(xml, name) {
+            var flag = 0;
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table = "<tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Email</th></tr>";
+            var x = xmlDoc.getElementsByTagName("USER");
+            for (i = 0; i < x.length; i++) {
+                if (name == x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue) {
+                    table += "<tr><td>" +
+                        x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue +
+                        "</td><td>" +
+                        x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +
+                        "</td><td>" +
+                        x[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue +
+                        "</td><td>" +
+                        x[i].getElementsByTagName("GENDER")[0].childNodes[0].nodeValue +
+                        "</td><td>" +
+                        x[i].getElementsByTagName("EMAIL")[0].childNodes[0].nodeValue +
+                        "</td></tr>";
+                    flag = 1;
+                }
+            }
+            if (flag == 0) {
+                document.getElementById("flag").innerHTML = "User Not Found!"
+                document.getElementById("demo").innerHTML = "";
+            } else {
+                document.getElementById("flag").innerHTML = "DATA:"
+                document.getElementById("demo").innerHTML = table;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

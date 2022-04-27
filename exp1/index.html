@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login Page </title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="login-page.js"></script>
+  
+  </head>
+<body>
+  <div id="bg"></div>
+  <div id="main" style="background-color: rgb(255, 255, 255);">
+    <center><div class="h-tag" >
+      <h2>Create Account!</h2>
+    </div>
+  </center>
+    
+    <div class="login" >
+      <table cellspacing="2" align="center" cellpadding="8" border="0">
+        <tr>
+          <td align="right">Enter Name :</td>
+          <td><input type="text" placeholder="Enter user here" id="t1" class="tb" /></td>
+        </tr>
+        <tr>
+          <td align="right">Enter Email ID :</td>
+          <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+        </tr>
+        <tr>
+          <td align="right">Enter Username :</td>
+          <td><input type="text" placeholder="Enter Username here" id="t3" class="tb" /></td>
+        </tr>
+        <tr>
+          <td align="right">Enter Password :</td>
+          <td><input type="password" placeholder="Enter Password here" id="t4" class="tb" /></td>
+        </tr>
+        <tr>
+          <td align="right">Enter Confirm Password :</td>
+          <td><input type="password" placeholder="Enter Password here" id="t5" class="tb" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+            <input type="submit" value="Create Account" class="btn" onclick="registration()" /></td>
+        </tr>
+      </table>
+    </div>
+    <!-- create account box ending here.. -->
+  </div>
+  <!-- Main div ending here... -->
+</body>
+
+</html>

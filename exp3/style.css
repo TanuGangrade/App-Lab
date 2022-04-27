@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+body{
+	background-color:#b3e6ff;
+	color:#006699;
+  font-family: 'Lato', sans-serif;
+}
+
+.defaultTextBox {
+    padding: 10px;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 3px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 16px;
+}
+.advancedSearchTextbox {
+    width: 526px;
+    margin-right: -4px;
+    margin-left:10px;
+}
+hr{
+  border: 10px solid  #00334d;
+  border-radius: 5px;
+  margin-bottom:10%;
+  margin-top:5%;
+}
